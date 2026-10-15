@@ -1,0 +1,9 @@
+work_item,owner_role,planned_days,actual_days,completion_percent,status,risk_level
+Requirements and user interviews,Product lead,3,3,100,Completed,Low
+Document ingestion pipeline,Data engineer,4,5,80,Delayed,Medium
+Foundry agent configuration,AI engineer,4,4,75,In progress,Medium
+MCP documentation integration,AI engineer,3,6,35,Delayed,High
+Streamlit user interface,Frontend developer,4,3,90,In progress,Low
+Evaluation test set,QA engineer,2,2,50,In progress,Medium
+Safety and content filter validation,QA engineer,2,4,30,Delayed,High
+Deployment and demo preparation,DevOps lead,2,1,15,Not started,Medium
