@@ -6,7 +6,7 @@
 
 ProjectPilot AI is a small web app that calls a Microsoft Foundry agent. The agent is intended to help student teams scope a project, explain architecture, answer questions from uploaded project documents, analyze structured project metrics, and consult official Microsoft documentation through an MCP tool when that tool is configured.
 
-> **Honesty/status:** This package includes the source code, a local UI preview, sample data, agent-instruction draft, project report draft, and presentation draft. It has **not** been connected to your Azure account or deployed to a public URL. Azure resources, model access, permissions, agent tools, live results, screenshots, and team GitHub contributions must be completed and verified by your team.
+> **Current status:** The local Streamlit UI has been run with `DEMO_MODE=false` and configured Microsoft Foundry settings. Project-planning responses and the CSV memory-usage chart workflow were tested locally, including PNG download. The included automated test passes (`1 passed`). The GitHub repository is private, and the application has not been deployed to a public URL. Before claiming complete Foundry integration for assessment, verify the live agent and tool calls and capture evidence from your own run. The project report and presentation remain drafts, and team contributions must reflect work actually completed.
 
 ## Included
 
@@ -46,7 +46,7 @@ The Streamlit app does not create the agent or attach tools. Configure those in 
 Requires Python 3.10+; the supplied Microsoft labs specifically recommend Python 3.13. The `azure-ai-projects` SDK also supports Python 3.10+ in recent releases.
 
 ```bash
-cd projectpilot_ai
+# Run these commands from the project root directory
 python3 -m venv .venv
 source .venv/bin/activate        # macOS/Linux
 # On Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -131,27 +131,43 @@ Demonstrate, rather than merely describe:
 
 Capture screenshots from your own run. Never invent successful runs, benchmark results, or deployment URLs for the report.
 
-## 5. GitHub team workflow
+## 5. GitHub repository and team workflow
 
-Create a new repository under the team's GitHub account; this package is not already uploaded to GitHub. Suggested repository name: `projectpilot-ai-foundry`.
+The ProjectPilot AI source code is maintained in the [ProjectPilot AI GitHub repository](https://github.com/prasannaY11/projectpilot-ai), on the `main` branch. The repository is currently private, so users need repository access to clone it.
+
+### Clone the repository
 
 ```bash
-git init
-git add .
-git commit -m "Create ProjectPilot AI starter"
-git branch -M main
-git remote add origin https://github.com/YOUR-ORG/projectpilot-ai-foundry.git
-git push -u origin main
+git clone https://github.com/prasannaY11/projectpilot-ai.git
+cd projectpilot-ai
 ```
 
-Before pushing, confirm `.env` is not tracked:
+### Verify configuration safety
+
+Before committing or pushing changes, confirm that local environment files are excluded:
 
 ```bash
+git check-ignore -v .env .venv/
 git status --short
-git check-ignore .env
 ```
 
-For actual collaboration, each member should work on a distinct task/branch, open pull requests, review another member's change, and merge only tested work. Use real team members' accounts and real contributions; GitHub activity should reflect what the team actually did.
+Never commit `.env`, virtual environments, API keys, passwords, access tokens, or other secrets.
+
+### Save and publish future changes
+
+```bash
+git add <files>
+git commit -m "Describe your change"
+git push
+```
+
+Replace `<files>` with the specific files you intend to commit.
+
+### Team collaboration
+
+For collaborative development, invite actual team members through the repository settings. Each contributor should work on a separate branch, open pull requests, review other contributions, and merge tested changes.
+
+Ensure that the repository history, team contributions, screenshots, and project report accurately reflect the work that was actually completed.
 
 ## 6. Tests
 
