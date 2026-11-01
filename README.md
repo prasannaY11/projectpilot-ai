@@ -46,7 +46,7 @@ The Streamlit app does not create the agent or attach tools. Configure those in 
 Requires Python 3.10+; the supplied Microsoft labs specifically recommend Python 3.13. The `azure-ai-projects` SDK also supports Python 3.10+ in recent releases.
 
 ```bash
-# Run these commands from the project root directory
+# Run these commands from the project root directory (the folder containing app.py and requirements.txt)
 python3 -m venv .venv
 source .venv/bin/activate        # macOS/Linux
 # On Windows PowerShell: .venv\Scripts\Activate.ps1
